@@ -52,17 +52,17 @@ $packageId = $package['packageId'];
     </tr>
     </thead>
     <tbody>
-    <?php foreach($arr as $k => $v){ ?>
+        <?php foreach($arr as $k => $v){ ?>
+            <tr>
+                <td><?php echo $v["location"] ;?></td>
+                <td><?php echo $v["itemName"] ;?></td>
+                <td><a href="./edit_item_in_package_page.php?id=<?php echo $v["id"]?>">Edit</a></td>
+                <td><a href="./main/control.php?act=delete_item_from_package&id=<?php echo $v["id"]?>">Delete</a></td>
+            </tr>
+        <?php  } ?>
         <tr>
-            <td><?php echo $v["location"] ;?></td>
-            <td><?php echo $v["itemName"] ;?></td>
-            <td><a href="./edit_item_in_package_page.php?id=<?php echo $v["id"]?>">Edit</a></td>
-            <td><a href="./main/control.php?act=delete_item_from_package&id=<?php echo $v["id"]?>">Delete</a></td>
+            <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package&id=<?php echo $packageId?>>">Add Item</a></td>
         </tr>
-    <?php  } ?>
-    <tr>
-        <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package>">Add More Item</a></td>
-    </tr>
     </tbody>
 </table>
 

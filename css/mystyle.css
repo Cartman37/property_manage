@@ -115,10 +115,6 @@ thead tr td{
     margin-left: 13px;
 }
 
-#newProperty, #editProperty {
-    text-align: left;
-}
-
 #newPropertyButton, #editPropertyButton {
     text-align: left;
     margin-left: 14px;
@@ -130,10 +126,6 @@ thead tr td{
     margin-left: 11px;
 }
 
-#newItem, #editItem {
-    text-align: left;
-}
-
 #newItemButton, #editItemButton {
     text-align: left;
     margin-left: 14px;
@@ -143,7 +135,8 @@ thead tr td{
     margin-left: 11px;
 }
 
-#newClient, #editClient, #editPackageItem, #listItemPackage{
+#newClient, #editClient, #editPackageItem, #listItemPackage, #newItem, #editItem,
+#newProperty, #editProperty, #newAppointment, #editAppointment {
     text-align: left;
 }
 
