@@ -138,7 +138,7 @@ thead tr td{
     text-align: left;
 }
 
-#newClientButton, #editClientButton, #listItemPackageButton {
+#newClientButton, #editClientButton, #listItemPackageButton, #editPackageItemButton {
     text-align: left;
     margin-left: 13px;
 }

@@ -19,9 +19,9 @@ $t = TCommon::getOne($sql);
       data-url="list_item_in_package_page.php">
     <h3 class="title">Edit Package Item</h3>
 
-    <div class="form-group">
+    <div id="editPackageItem" class="form-group">
         <label>Location</label>
-        <input id="editPackageItem" type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
+        <input type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
     </div>
 
     <div class="form-group">
@@ -33,7 +33,7 @@ $t = TCommon::getOne($sql);
         </select>
     </div>
 
-    <div class="form-group tT010 ">
+    <div id="editPackageItemButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Save</button>
     </div>
     <div>
