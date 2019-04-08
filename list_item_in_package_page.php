@@ -15,7 +15,7 @@ $packageId = $package['packageId'];
 <form class="form-ajax-post"
       data-action="./main/control.php?act=add_item_to_package"
       data-url="list_item_in_package_page.php">
-    <h3 class="title">Add New Item</h3>
+    <h3 class="title">Add New Item</h3><br>
     <input style="display:none" value="<?php echo $packageId?>" name="id"/>
     <div id="listItemPackage" class="form-group">
         <label>Location</label>
@@ -39,7 +39,7 @@ $packageId = $package['packageId'];
 
 
 <hr>
-<h3 class="title">List Items in Package</h3>
+<h3 class="title">Items in Package</h3><br>
 <input style="display:none" value="<?php echo $packageId?>" name="id" />
 <?php $arr = list_item_in_package(); ?>
 <table class="table">
