@@ -17,21 +17,21 @@ $packageId = $package['packageId'];
       data-url="list_item_in_package_page.php">
     <h3 class="title">Add New Item</h3>
     <input style="display:none" value="<?php echo $packageId?>" name="id"/>
-    <div class="form-group">
+    <div id="listItemPackage" class="form-group">
         <label>Location</label>
         <input type="text" name="location" class="form-control" />
     </div>
 
     <div class="form-group">
         <label>Select Item</label>
-        <select name="item" >
+        <select id="listItemPackageSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
                 <option value = <?php echo $v["itemName"]?>><?php echo $v["itemName"]?></option>
             <?php }?>
         </select>
     </div>
 
-    <div class="form-group tT010 ">
+    <div id="listItemPackageButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add to Package</button>
     </div>
     <div>
@@ -60,11 +60,10 @@ $packageId = $package['packageId'];
             <td><a href="./main/control.php?act=delete_item_from_package&id=<?php echo $v["id"]?>">Delete</a></td>
         </tr>
     <?php  } ?>
-    </tbody>
     <tr>
-        <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package?id=<?php echo $packageId?>">Add More Item</a></td>
+        <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package>">Add More Item</a></td>
     </tr>
-
+    </tbody>
 </table>
 
 
