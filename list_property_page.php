@@ -17,7 +17,7 @@ require_once('head.php');
         <td>Closing Date</td>
         <td>Status</td>
         <td>Client</td>
-        <td></td>
+        <td>Package</td>
         <td></td>
         <td></td>
     </tr>
