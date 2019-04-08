@@ -381,15 +381,15 @@ function edit_appointment(){
     if($client){
         $clientId = $client["clientId"];
     }
-   if($clientId){
+    if($clientId){
         $sql = "UPDATE appointment SET apptDate='$apptDate', Client_clientId='$clientId' WHERE apptId='$id'";
         TCommon::execSql($sql);
         $r['success'] = true;
         $r['info'] = "Appointment updated success";
-   }else{
+    }else{
         $r['info'] = "cannot locate client with name $clientName";
-   }
-   echo json_encode($r);
+    }
+    echo json_encode($r);
 
 }
 
