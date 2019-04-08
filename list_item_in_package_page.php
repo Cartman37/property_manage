@@ -42,7 +42,7 @@ $packageId = $package['packageId'];
 <h3 class="title">List Items in Package</h3>
 <input style="display:none" value="<?php echo $packageId?>" name="id" />
 <?php $arr = list_item_in_package(); ?>
-<table class="table" border="2" cellpadding="5" cellspacing="3">
+<table class="table">
     <thead>
     <tr>
         <td>Location</td>

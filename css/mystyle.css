@@ -124,7 +124,7 @@ thead tr td{
     margin-left: 14px;
 }
 
-#newPropertyStatus, #editPropertyModel, #editPropertyStatus, #editPropertySubdivision {
+#newPropertyStatus, #editPropertyModel, #editPropertyStatus, #editPropertySubdivision, #editPackageItemSelect {
     text-align: left;
     margin-left: 11px;
 }
@@ -149,4 +149,8 @@ thead tr td{
 #newClientButton, #editClientButton {
     text-align: left;
     margin-left: 13px;
+}
+
+#editPackageItem {
+    text-align: left;
 }
