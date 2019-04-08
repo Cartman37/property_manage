@@ -62,7 +62,7 @@ $packageId = $package['packageId'];
     <?php  } ?>
     </tbody>
     <tr>
-        <td colspan="11" align="right"><a href="./add_item_to_package_page.php?id=<?php echo $packageId?>">Add More Item</a></td>
+        <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package?id=<?php echo $packageId?>">Add More Item</a></td>
     </tr>
 
 </table>

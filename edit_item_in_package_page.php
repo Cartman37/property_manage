@@ -17,16 +17,16 @@ $t = TCommon::getOne($sql);
 <form class="form-ajax-post"
       data-action="./main/control.php?act=edit_item_in_package"
       data-url="list_item_in_package_page.php">
-    <h3 class="title">Edit</h3>
+    <h3 class="title">Edit Package Item</h3>
 
     <div class="form-group">
         <label>Location</label>
-        <input type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
+        <input id="editPackageItem" type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
     </div>
 
     <div class="form-group">
         <label>Select Item</label>
-        <select name="item" >
+        <select id="editPackageItemSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
                 <option value = <?php echo $v["itemName"]?>><?php echo $v["itemName"]?></option>
             <?php }?>

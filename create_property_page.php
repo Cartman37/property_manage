@@ -7,8 +7,8 @@ require_once('head.php');
       data-action="./main/control.php?act=create_property"
       data-url="list_property_page.php">
     <h3 class="title">Create New Property</h3>
-    <div id="newProperty" class="form-group">
-        <label>Sub</label>
+    <div id="newPropertyStatus" class="form-group">
+        <label>Subdivision:</label>
         <select name="p_sub">
             <option value="HWK">Huron Woods Kitchener</option>
             <option value="HRC">Highland Ridge Cambridge</option>
