@@ -1,21 +1,7 @@
 <?php
 $subTitle = "login";
 require_once('head.php');
-?>
-<!-- welcome message -->
-<div id="welcome">
-    <div class="form_container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="heading">
-                    <h2>Welcome to Property Management for Freure Homes</h2>
-                    <img src="/images/icons/under-heading.png" alt="" >
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php if($u_name) {?>
+if($u_name) {?>
     <form class="form-ajax-post"
         data-action="./main/control.php?act=create_appointment"
         data-url="index.php">
