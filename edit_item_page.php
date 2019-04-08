@@ -40,7 +40,7 @@ $item = TCommon::getOne($sql);
         <label>Manufacturer:</label>
         <select name="itemManufacturer"  value="<?php echo $item['itemManufacturer']?>">
         <?php $manus = listManus(); foreach($manus as $k=>$v) {?>
-            <option value=<?php echo $v["manuId"]." ".$item["itemManu_manuId"]==$v['typeId']?'selected':''?>><?php echo $v["manuName"]?></option>
+            <option value=<?php echo $v["manuId"]." ".$item["itemManufacturer_manuId"]==$v['typeId']?'selected':''?>><?php echo $v["manuName"]?></option>
         <?php }?>
         </select>
     </div>
