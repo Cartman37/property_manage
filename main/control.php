@@ -66,17 +66,17 @@ if (isset($_GET['act'])) {
             del_property();
             break;
 
-        case 'view_package':
-            view_package();
+        case 'list_item_in_package':
+            list_item_in_package();
             break;
-        case 'create_package':
-            create_package();
+        case 'add_item_to_package':
+            add_item_to_package();
             break;
-        case 'edit_package':
-            edit_package();
+        case 'delete_item_from_package':
+            delete_item_from_package();
             break;
-        case 'del_package':
-            del_package();
+        case 'edit_item_it_package':
+            edit_item_it_package();
             break;
 
         default:
@@ -210,7 +210,8 @@ function create_client(){
 
 function edit_client(){
     $r["success"] = false;
-    $id = $_POST["clientId"];
+    $id = $_POST["id"];
+
     $clientName = $_POST["clientName"];
     $address1 = $_POST["clientAddress1"];
     $address2 = $_POST["clientAddress2"];
@@ -293,24 +294,16 @@ function edit_item(){
     $itemType = $_POST["itemType"];
     $itemManufacturer = $_POST["itemManufacturer"];
 
+    $sql = "UPDATE item SET itemName='$itemName',
+            itemDescription='$itemDescription',
+            itemStandard='$itemStandard',
+            itemType_typeId='$itemType',
+            itemManufacturer_manuId='$itemManufacturer'
+            WHERE itemId=$id";
+    TCommon::execSql($sql);
+    $r['success'] = true;
+    $r['info'] = "$itemName edited success";
 
-    //$sql = "SELECT count(*) FROM item WHERE itemName ='$itemName'";
-        //if(0 == TCommon::getOneColumn($sql)){
-            $sql = "UPDATE item SET itemName='$itemName',
-                    itemDescription='$itemDescription',
-                    itemStandard='$itemStandard',
-                    itemType_typeId='$itemType',
-                    itemManufacturer_manuId='$itemManufacturer'
-                    WHERE itemId=$id";
-            TCommon::execSql($sql);
-
-            $r['success'] = true;
-            $r['info'] = "$itemName edited success";
-
-        //}
-        //else{
-        //    $r["error"] = "cannot locate itemId by $itemName";
-        //}
     echo json_encode($r);
 }
 
@@ -476,6 +469,13 @@ function edit_property(){
         $sqlCheckLot = "SELECT count(*) FROM property WHERE lotNum = '$lot'";
         //if(1==TCommon::getOneColumn($sqlCheckLot)){
             if($status != "available"){
+                if($status == "pack_selected"){
+                    $sqlSearch = "SELECT count(*) FROM package WHERE propertyId = '$id'";
+                    if(0==TCommon::isEmpty($sqlSearch)){
+                        $sqlPackage = "INSERT INTO package (propertyId) VALUES ('$id')";
+                        TCommon::execSql($sqlPackage);
+                    }
+                }
                 if(TCommon::isEmpty($buyer)){
                     $r["error"] = "status $status requires a buyer";
                 }
@@ -545,16 +545,67 @@ function del_property(){
 }
 
 
-//--package-------------------------------------------------------------------------------------------------------------
-function view_package(){
-    TCommon::headerTo("../view_package_page.php");
+//--item_to_package-------------------------------------------------------------------------------------------------------------
+function list_item_in_package(){
+
+    $query = "SELECT itemtopackage.* FROM itemtopackage ";
+    return TCommon::getAll($query);
 }
 
-function create_package(){
-    TCommon::headerTo("../new_package_page.php");
+function add_item_to_package(){
+    $r['success'] = false;
+    $id = $_POST["id"];
+    $location = $_POST["location"];
+    $item = $_POST["item"];
+
+    if(!TCommon::isEmpty($location)){
+        $sqlInsert = "INSERT INTO itemtopackage (itemName,location,packageId) VALUES ('$item','$location','$id')";
+
+        if(TCommon::execSql($sqlInsert)){
+            $r['success'] = true;
+            $r['info'] = "Success";
+        }
+    }
+    else{
+        $r['error'] = "Location cannot left blank";
+    }
+    echo json_encode($r);
 }
 
-//--listbox get value--
+function delete_item_from_package(){
+    $id=$_GET["id"];
+    $sqlExec = "DELETE FROM itemtopackage WHERE id='$id'";
+
+    print_r($sqlExec);
+    if(TCommon::execSql($sqlExec)){
+
+    }
+    TCommon::headerTo("../list_item_in_package_page.php");
+}
+
+function edit_item_it_package(){
+    $r['success'] = false;
+    $id = $_POST["id"];
+    $location = $_POST["location"];
+    $item = $_POST["item"];
+
+    if(!TCommon::isEmpty($location)){
+        $sqlUpdate = "UPDATE itemtopackage SET itemName = '$item', location = '$location', packageId = '$id'";
+
+        if(TCommon::execSql($sqlUpdate)){
+            $r['success'] = true;
+            $r['info'] = "Success";
+        }
+    }
+    else{
+        $r['error'] = "Location cannot left blank";
+    }
+    echo json_encode($r);
+}
+
+
+
+//--other---------------------------------------------------------------------------------------------------------------
 function listTypes(){
     $sql = "SELECT * FROM itemType";
     return TCommon::getAll($sql);
@@ -562,11 +613,6 @@ function listTypes(){
 
 function listManus(){
     $sql = "SELECT * FROM itemManufacturer";
-    return TCommon::getAll($sql);
-}
-
-function listLocations(){
-    $sql = "SELECT * FROM itemLocation";
     return TCommon::getAll($sql);
 }
 

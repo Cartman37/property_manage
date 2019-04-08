@@ -19,7 +19,6 @@ $item = TCommon::getOne($sql);
         <label>Description:</label>
         <input name="itemDescription" type="text" value="<?php echo $item['itemDescription']?>" class="form-control"/>
     </div>
-
     <div id="editItem" class="form-group">
         <label>Standard:</label>
         <select id="editItemStandard" name="itemStandard">

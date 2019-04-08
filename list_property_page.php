@@ -4,52 +4,19 @@ require_once('head.php');
 // print_r($_SESSION);
 ?>
 <?php if($u_name) {?>
-<form class="form-ajax-post"
-      data-action="./main/control.php?act=create_property"
-      data-url="list_property_page.php">
-    <h3 class="title">Create New Property</h3><br>
-    <div id="newProperty" class="form-group">
-        <label>Subdivision:</label>
-        <input name="subdivName" type="text" class="form-control"/>
-    </div>
-    <div id="newProperty" class="form-group">
-        <label>Block:</label>
-        <input name="blockName" type="text" class="form-control"/>
-    </div>
-    <div id="newProperty" class="form-group">
-        <label>Lot #:</label>
-        <input name="lotNumber" type="text" class="form-control"/>
-    </div>
-    <div id="newProperty" class="form-group">
-        <label>Status:</label>
-        <select id="newPropertyStatus" name="propStatus">
-            <option value="available">Available</option>
-            <option value="on_hold">On Hold</option>
-            <option value="cond_offer">Conditional Offer</option>
-            <option value="firm_offer">Firm Offer</option>
-            <option value="pack_unselected">Needs Package</option>
-            <option value="pack_selected">Package Selected</option>
-        </select>
-    </div>
-
-    <div id="newPropertyButton" class="form-group tT010 ">
-        <button class="form-ajax-btn" type="submit">Add a New Property</button>
-    </div>
-    <br>
-</form>
 <h3 class="title">List of Properties</h3><br>
 <?php $arr = list_properties(); ?>
 <table class="table">
     <thead>
     <tr>
-        <td>Subdivision</td>
+        <td>Subdiv</td>
         <td>Block</td>
         <td>Lot #</td>
         <td>Lot Size</td>
         <td>Lot Model</td>
         <td>Closing Date</td>
         <td>Status</td>
-        <td>Client Name</td>
+        <td>Client</td>
         <td></td>
         <td></td>
         <td></td>
@@ -67,12 +34,9 @@ require_once('head.php');
             <td><?php echo $v["status"] ;?></td>
             <td><?php echo $v["clientName"] ;?></td>
             <td>
-                <?php
-                if($v["status"]=="pack_unselected"){
-                    ?><a href="./create_package_page.php"><?php echo "Create Package" ?></a><?php ;
-                }
-                else if($v["status"]=="pack_selected"){
-                    ?><a href="./view_package_page.php"><?php echo "View Package" ?></a><?php ;
+            <?php
+                if($v["status"]=="pack_selected"){
+                    ?><a href="./list_item_in_package_page.php?id=<?php echo $v['propertyId']?>"><?php echo "View Package" ?></a><?php ;
                 }
                 else{
                     echo "";
@@ -84,6 +48,10 @@ require_once('head.php');
         </tr>
     <?php  } ?>
     </tbody>
+    <tr>
+        <td colspan="11" align="right"><a href="create_property_page.php">Create New Property</a></td>
+    </tr>
+
 </table>
 <?php }else{?>
 <h3 class="title">Please login/register first</h3>

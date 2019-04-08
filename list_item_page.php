@@ -22,7 +22,6 @@ require_once('head.php');
             <option value="0">Upgrade</option>
         </select>
     </div>
-
     <div id="newItem" class="form-group">
         <label>Type:</label>
         <select id="newItemType" name="itemType">
@@ -31,7 +30,6 @@ require_once('head.php');
         <?php }?>
         </select>
     </div>
-
     <div id="newItem" class="form-group">
         <label>Manufacturer:</label>
         <select id="newItemManufacturer" name="itemManufacturer">
@@ -40,7 +38,6 @@ require_once('head.php');
         <?php }?>
         </select>
     </div>
-
     <div id="newItemButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add a New Item</button>
     </div>
@@ -70,7 +67,7 @@ require_once('head.php');
         <td><?php echo $v["typeName"] ;?></td>
         <td><?php echo $v["manuName"] ;?></td>
         <td><a href="./edit_item_page.php?id=<?php echo $v["itemId"]?>">Edit</a></td>
-        <td><a href="./main/control.php?act=del_item&id=<?php echo $v["itemId"]?>">Delete</a></td>
+        <td><a href="./main/control.php?act=del_item&itemName=<?php echo $v["itemName"]?>">Delete</a></td>
     </tr>
 
     <?php  } ?>
