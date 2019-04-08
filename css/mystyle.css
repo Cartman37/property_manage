@@ -106,16 +106,8 @@ thead tr td {
 	margin-top: 80px;
 }
 
-#newAppointment, #editAppointment {
-    text-align: left;
-}
-
+#newPropertyButton, #editPropertyButton, #newItemButton, #editItemButton,
 #newAppointmentButton, #editAppointmentButton {
-    text-align: left;
-    margin-left: 13px;
-}
-
-#newPropertyButton, #editPropertyButton {
     text-align: left;
     margin-left: 14px;
 }
@@ -124,11 +116,6 @@ thead tr td {
 #editPackageItemSelect, #listItemPackageSelect {
     text-align: left;
     margin-left: 11px;
-}
-
-#newItemButton, #editItemButton {
-    text-align: left;
-    margin-left: 14px;
 }
 
 #newItemType, #newItemStandard, #newItemManufacturer, #editItemManufacturer,
