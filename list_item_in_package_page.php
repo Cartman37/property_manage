@@ -11,7 +11,7 @@ $package = TCommon::getOne($sqlPackage);
 $packageId = $package['packageId'];
 //echo $packageId;
 ?>
-<h1 class="title">Package for Lot# <?php echo $property['lotNum'] ?></h1>
+<h1 class="title">Package for <?php echo $property["sub"]+" "+$property['block']+"-"+$property['lotNum'] ?></h1>
 <form class="form-ajax-post"
       data-action="./main/control.php?act=add_item_to_package"
       data-url="list_item_in_package_page.php">

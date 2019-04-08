@@ -10,7 +10,7 @@ $p = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_property"
       data-url="list_property_page.php">
     <input style="display:none" value="<?php echo $id ?>" name="id" />
-    <h3 class="title">Edit Property on Lot # <?php echo $p['lotNum']?></h3>
+    <h3 class="title">Edit <?php echo $property["sub"]+" "+$property['block']+"-"+$property['lotNum'] ?></h3>
     <div id="editProperty" class="form-group">
         <label>Subdivision:</label>
         <select id="editPropertySubdivision" name="p_sub">
