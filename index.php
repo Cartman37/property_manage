@@ -53,7 +53,7 @@ require_once('head.php');
                 <td><?php echo $v["clientName"] ;?></td>
                 <td><?php echo $v["clientPhone1"] ;?></td>
                 <td><?php echo $v["clientEmail"] ;?></td>
-                <td><a href="./edit_appointment_page.php?apptDate=<?php echo $v['apptDate']?>">Edit</a></td>
+                <td><a href="./edit_appointment_page.php?id=<?php echo $v['apptId']?>&apptDate=<?php echo $v['apptDate']?>">Edit</a></td>
                 <td><a href="./main/control.php?act=del_appointment&apptDate=<?php echo $v['apptDate']?>?>">Delete</a></td>
             </tr>
         <?php  } ?>
