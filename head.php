@@ -15,6 +15,7 @@ if (isset($_SESSION["NAME"])) {
     <script src="./assets/common.js"></script>
     <title><?php echo TCommon::$mainTitle; ?></title>
     <base href="./" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/flexslider.css" />
     <link rel="stylesheet" href="./css/font.css" />
