@@ -335,12 +335,14 @@ function create_appointment(){
     $clientId = false;
     $sqlQuery = "SELECT * FROM client WHERE client.clientName='$clientName'";
     $client = TCommon::getOne($sqlQuery);
+
     if($client){
         $clientId = $client["clientId"];
     }
-    if($clientId){
 
-        $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) VALUES('$apptDate',$clientId,$uid)";
+    if($clientId){
+        $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) 
+            VALUES('$apptDate','$clientId','$uid')";
         if(TCommon::execSql($sqlInsert)){
             $r['success'] = true;
             $r['info'] = "Appointment created success";
