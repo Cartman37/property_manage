@@ -60,9 +60,6 @@ $packageId = $package['packageId'];
                 <td><a href="./main/control.php?act=delete_item_from_package&id=<?php echo $v["id"]?>">Delete</a></td>
             </tr>
         <?php  } ?>
-        <tr>
-            <td colspan="11" align="right"><a href="./main/control.php?act=add_item_to_package&id=<?php echo $packageId?>>">Add Item</a></td>
-        </tr>
     </tbody>
 </table>
 
