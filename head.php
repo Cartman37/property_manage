@@ -11,11 +11,9 @@ if (isset($_SESSION["NAME"])) {
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width">
-    <script src="./assets/jquery.min.js"></script>
-    <script src="./assets/common.js"></script>
     <title><?php echo TCommon::$mainTitle; ?></title>
     <base href="./" />
-    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./images/icons/favicon.ico" />
     <link rel="stylesheet" href="./css/bootstrap.css" />
     <link rel="stylesheet" href="./css/flexslider.css" />
     <link rel="stylesheet" href="./css/font.css" />
@@ -28,6 +26,7 @@ if (isset($_SESSION["NAME"])) {
     <script src="./js/vendor/jquery.gmap3.min.js"></script>
     <script src="./js/plugins.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/common.js"></script>
 </head>
 <body>
 <header>
