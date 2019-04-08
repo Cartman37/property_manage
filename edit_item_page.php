@@ -26,7 +26,6 @@ $item = TCommon::getOne($sql);
             <option value="0" <?php echo $item['itemStandard']=='0'?'selected':''?>>Upgrade</option>
         </select>
     </div>
-
     <div id="editItem" class="form-group">
         <label>Type:</label>
         <select id="editItemType" name="itemType">
@@ -35,16 +34,14 @@ $item = TCommon::getOne($sql);
         <?php }?>
         </select>
     </div>
-
     <div id="editItem" class="form-group">
         <label>Manufacturer:</label>
-        <select name="itemManufacturer"  value="<?php echo $item['itemManufacturer']?>">
+        <select name="itemManufacturer">
         <?php $manus = listManus(); foreach($manus as $k=>$v) {?>
-            <option value=<?php echo $v["manuId"]." ".$item["itemManufacturer_manuId"]==$v['typeId']?'selected':''?>><?php echo $v["manuName"]?></option>
+            <option value=<?php echo $v["manuId"]." ".$item["itemManufacturer_manuId"]==$v['manuId']?'selected':''?>><?php echo $v["manuName"]?></option>
         <?php }?>
         </select>
     </div>
-
     <div id="editItemButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Submit</button>
     </div>
