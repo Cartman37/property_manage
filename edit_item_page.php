@@ -31,7 +31,7 @@ $item = TCommon::getOne($sql);
         <label>Type:</label>
         <select id="editItemType" name="itemType">
         <?php $types = listTypes();foreach($types as $k=>$v){?>
-            <option value=<?php echo $v["typeId"]." ".$item['typeId']==$v['typeId']?'selected':''?>><?php echo $v["typeName"]?></option>
+            <option value=<?php echo $v["typeId"]." ".$item['itemType_typeId']==$v['typeId']?'selected':''?>><?php echo $v["typeName"]?></option>
         <?php }?>
         </select>
     </div>
@@ -40,7 +40,7 @@ $item = TCommon::getOne($sql);
         <label>Manufacturer:</label>
         <select name="itemManufacturer"  value="<?php echo $item['itemManufacturer']?>">
         <?php $manus = listManus(); foreach($manus as $k=>$v) {?>
-            <option value=<?php echo $v["manuId"]." ".$item["manuId"]==$v['typeId']?'selected':''?>><?php echo $v["manuName"]?></option>
+            <option value=<?php echo $v["manuId"]." ".$item["itemManu_manuId"]==$v['typeId']?'selected':''?>><?php echo $v["manuName"]?></option>
         <?php }?>
         </select>
     </div>
