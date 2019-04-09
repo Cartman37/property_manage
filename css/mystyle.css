@@ -55,7 +55,7 @@
 
 .form-group label{
     display: inline-block;
-    width: 200px;
+    width: 39.3%;
     margin-right:3px;
     text-align: right;
 }
@@ -70,7 +70,7 @@
     width: 150px!important;
     margin-right: 3px;
     text-align: center;
-    margin-left: 208px;
+    margin-left: 40%;
 }
 
 #foot {
