@@ -1,8 +1,7 @@
 <?php
 $subTitle = "list_item_page";
 require_once('head.php');
-?>
-<?php if($u_name) {?>
+if($u_name) {?>
 <form class="form-ajax-post"
       data-action="./main/control.php?act=create_item"
       data-url="list_item_page.php">

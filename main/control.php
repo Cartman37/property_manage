@@ -75,8 +75,8 @@ if (isset($_GET['act'])) {
         case 'delete_item_from_package':
             delete_item_from_package();
             break;
-        case 'edit_item_it_package':
-            edit_item_it_package();
+        case 'edit_item_in_package':
+            edit_item_in_package();
             break;
 
         default:
@@ -299,7 +299,7 @@ function edit_item(){
             itemStandard='$itemStandard',
             itemType_typeId='$itemType',
             itemManufacturer_manuId='$itemManufacturer'
-            WHERE itemId=$id";
+            WHERE itemId='$id'";
     TCommon::execSql($sql);
     $r['success'] = true;
     $r['info'] = "$itemName edited success";
@@ -585,7 +585,7 @@ function delete_item_from_package(){
     TCommon::headerTo("../list_item_in_package_page.php");
 }
 
-function edit_item_it_package(){
+function edit_item_in_package(){
     $r['success'] = false;
     $id = $_POST["id"];
     $location = $_POST["location"];
