@@ -1,7 +1,12 @@
 <?php
 $subTitle = "list_item_in_package";
 require_once('head.php');
-$propertyId = $_GET["id"];
+if(isset($_GET['id'])){
+    $propertyId = $_GET["id"];
+    $_SESSION['propId'] = $propertyId;
+}else{
+    $propertyId = $_SESSION['propId'];
+}
 $sqlProperty = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId = client.clientId WHERE property.propertyId = '$propertyId'";
 $property = TCommon::getOne($sqlProperty);
 //echo $propertyId;
