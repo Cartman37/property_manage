@@ -43,7 +43,6 @@ if($u_name) {?>
     <br>
 </form>
 <h3 class="title">List of Items</h3><br>
-<?php $arr = list_items(); ?>
 <table class="table">
     <thead>
     <tr>
