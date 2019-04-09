@@ -315,12 +315,12 @@ function list_items(){
 }
 
 function del_item(){
-    $itemName = $_GET["itemName"];
-    $sqlExec = "DELETE FROM item WHERE item.itemName='$itemName'";
+    $itemId = $_GET["id"];
+    $sqlExec = "DELETE FROM item WHERE item.itemId='$itemId'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
         $r['success'] = true;
-        $r['info'] = "$itemName delete success";
+        $r['info'] = "delete success";
     }
     TCommon::headerTo("../list_item_page.php");
 }
@@ -357,16 +357,17 @@ function create_appointment(){
 function list_appointments(){
     $uid = $_SESSION['ID'];
     $query = "SELECT  appointment.apptId, appointment.apptDate, client.clientName, client.clientPhone1, client.clientEmail FROM appointment
-        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId=$uid";
+        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId='$uid'";
     return TCommon::getAll($query);
 }
 
 function del_appointment(){
-    $apptDate=$_GET["apptDate"];
-    $sqlExec = "DELETE FROM appointment WHERE appointment.apptDate='$apptDate'";
+    $apptId=$_GET["apptId"];
+    $sqlExec = "DELETE FROM appointment WHERE appointment.apptId='$apptId'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
-
+        $r['success'] = true;
+        $r['info'] = "delete success";
     }
     TCommon::headerTo("../index.php");
 }
