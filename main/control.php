@@ -308,7 +308,7 @@ function edit_item(){
 }
 
 function list_items(){
-    $query = "SELECT * FROM item
+    $query = "SELECT *, itemtype.typeName, itemmanufacturer.manuName FROM item
     JOIN itemtype ON item.ItemType_typeId=itemtype.typeId
     JOIN itemmanufacturer ON item.ItemManufacturer_manuId=itemmanufacturer.manuId";
     return TCommon::getAll($query);
