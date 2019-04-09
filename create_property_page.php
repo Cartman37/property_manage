@@ -27,7 +27,7 @@ require_once('head.php');
         <input name="p_size" type="text" class="form-control"/>
     </div>
     <div id="newProperty" class="form-group">
-        <label>Model</label>
+        <label>Model:</label>
         <select id="newPropertyStatus" name="p_model">
             <option value="Bridgeport">Bridgeport</option>
             <option value="Brookside">Brookside</option>

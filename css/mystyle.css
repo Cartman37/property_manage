@@ -39,6 +39,15 @@
     text-shadow: 1px 1px 0 black;
 }
 
+#main-header ul li a{
+    padding:20px 40px;
+    font-size:20px;
+    margin-right:10px;
+}
+ {
+    width: 53px;
+}
+
 #heading h2 {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
@@ -51,11 +60,12 @@
 .form-group{
     width:100%;
     margin:5px;
+    text-align:center;
 }
 
 .form-group label{
     display: inline-block;
-    width: 39.3%;
+    width: 120px;
     margin-right:3px;
     text-align: right;
 }
@@ -68,9 +78,14 @@
 
 .form-group button{
     width: 150px!important;
-    margin-right: 3px;
+    margin-right: 15px;
     text-align: center;
-    margin-left: 40%;
+}
+
+.form-group select{
+    display: inline-block;
+    width: 290px!important;
+    margin: 10px;
 }
 
 #foot {
@@ -101,35 +116,25 @@ thead tr td {
 }
 
 #userRegistration, #userLogin {
-	text-align: center;
-	margin-right: 165px;
 	margin-top: 80px;
 }
 
 #newPropertyButton, #editPropertyButton, #newItemButton, #editItemButton,
 #newAppointmentButton, #editAppointmentButton {
-    text-align: left;
     margin-left: 14px;
 }
 
 #newPropertyStatus, #editPropertyModel, #editPropertyStatus, #editPropertySubdivision,
 #editPackageItemSelect, #listItemPackageSelect {
-    text-align: left;
     margin-left: 11px;
 }
 
 #newItemType, #newItemStandard, #newItemManufacturer, #editItemManufacturer,
 #editItemStandard, #editItemType {
-    text-align: left;
     margin-left: 11px;
 }
 
-#newClient, #editClient, #editPackageItem, #listItemPackage, #newItem, #editItem,
-#newProperty, #editProperty, #newAppointment, #editAppointment {
-    text-align: left;
-}
-
 #newClientButton, #editClientButton, #listItemPackageButton, #editPackageItemButton {
-    text-align: left;
+    text-align: center;
     margin-left: 13px;
 }

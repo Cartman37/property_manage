@@ -51,12 +51,12 @@ if (isset($_SESSION["NAME"])) {
 <div id="main-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="logo">
                     <a href="./"><img src="./images/icons/icon-1.png" alt="Company Icon" ></a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="main-menu">
                     <ul>
                         <li><a href="./index.php">Home</a></li>
@@ -66,10 +66,10 @@ if (isset($_SESSION["NAME"])) {
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <div class="search-box">
                     <form name="search_form" method="get" class="search_form">
-                        <input id="search" type="text" />
+                        <input id="search" type="hidden" />
                         <input type="submit" id="search-button" />
                     </form>
                 </div>
