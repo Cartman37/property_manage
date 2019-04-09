@@ -70,7 +70,7 @@ if (isset($_SESSION["NAME"])) {
                 <div class="search-box">
                     <form name="search_form" method="get" class="search_form">
                         <input id="search" type="hidden" />
-                        <input type="submit" id="search-button" />
+                        <input type="hidden" id="search-button" />
                     </form>
                 </div>
             </div>
