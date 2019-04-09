@@ -54,7 +54,6 @@ require_once('head.php');
     <br>
 </form>
 <h3 class="title">List of Clients</h3><br>
-<?php $arr = list_clients(); ?>
 <table class="table">
     <thead>
     <tr>
@@ -73,24 +72,22 @@ require_once('head.php');
     </tr>
     </thead>
     <tbody>
-
-    <?php foreach($arr as $k => $v){ ?>
-    <tr>
-        <td><?php echo $v["clientName"] ;?></td>
-        <td><?php echo $v["clientAddress1"] ;?></td>
-        <td><?php echo $v["clientAddress2"] ;?></td>
-        <td><?php echo $v["clientCity"] ;?></td>
-        <td><?php echo $v["clientProv"] ;?></td>
-        <td><?php echo $v["clientPostal"] ;?></td>
-        <td><?php echo $v["clientPhone1"] ;?></td>
-        <td><?php echo $v["clientPhone2"] ;?></td>
-        <td><?php echo $v["clientEmail"] ;?></td>
-        <td><?php echo $v["clientDetails"] ;?></td>
-        <td><a href="./edit_client_page.php?id=<?php echo $v['clientId']?>">Edit</a></td>
-        <td><a href="./main/control.php?act=del_client&clientName=<?php echo $v["clientName"]?>">Delete</a></td>
-    </tr>
-
-    <?php  } ?>
+        <?php $arr = list_clients(); foreach($arr as $k => $v){ ?>
+            <tr>
+                <td><?php echo $v["clientName"] ;?></td>
+                <td><?php echo $v["clientAddress1"] ;?></td>
+                <td><?php echo $v["clientAddress2"] ;?></td>
+                <td><?php echo $v["clientCity"] ;?></td>
+                <td><?php echo $v["clientProv"] ;?></td>
+                <td><?php echo $v["clientPostal"] ;?></td>
+                <td><?php echo $v["clientPhone1"] ;?></td>
+                <td><?php echo $v["clientPhone2"] ;?></td>
+                <td><?php echo $v["clientEmail"] ;?></td>
+                <td><?php echo $v["clientDetails"] ;?></td>
+                <td><a href="./edit_client_page.php?id=<?php echo $v['clientId']?>">Edit</a></td>
+                <td><a href="./main/control.php?act=del_client&clientName=<?php echo $v["clientName"]?>">Delete</a></td>
+            </tr>
+        <?php  } ?>
     </tbody>
 </table>
 <?php }else{?>
