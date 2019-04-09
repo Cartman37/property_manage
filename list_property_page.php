@@ -47,7 +47,7 @@ require_once('head.php');
                 ?>
             </td>
             <td><a href="./edit_property_page.php?id=<?php echo $v['propertyId']?>">Edit</a></td>
-            <td><a href="./main/control.php?act=del_property&lotNum=<?php echo $v["lotNum"]?>">Delete</a></td>
+            <td><a href="./main/control.php?act=del_property&id=<?php echo $v['propertyId']?>">Delete</a></td>
         </tr>
     <?php  } ?>
     </tbody>

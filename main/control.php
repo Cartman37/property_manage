@@ -467,83 +467,75 @@ function edit_property(){
     $buyer = $_POST["p_buyer"];
 
     if(TCommon::isEmpty($lot) || TCommon::isEmpty($sub) || TCommon::isEmpty($block)){
-        $r["error"] = "Lot#, sub, block cannot left blank";
+        $r["error"] = "Lot#, sub, and block required";
     }
     else{
-        $sqlCheckLot = "SELECT count(*) FROM property WHERE lotNum = '$lot'";
-        //if(1==TCommon::getOneColumn($sqlCheckLot)){
-            if($status != "available"){
-                if($status == "pack_selected"){
-                    $sqlSearch = "SELECT count(*) FROM package WHERE propertyId = '$id'";
-                    if(0==TCommon::isEmpty($sqlSearch)){
-                        $sqlPackage = "INSERT INTO package (propertyId) VALUES ('$id')";
-                        TCommon::execSql($sqlPackage);
-                    }
+        if($status != "available"){
+            if($status == "pack_selected"){
+                $sqlSearch = "SELECT count(*) FROM package WHERE propertyId='$id'";
+                if(0==TCommon::isEmpty($sqlSearch)){
+                    $sqlPackage = "INSERT INTO package (propertyId) VALUES ('$id')";
+                    TCommon::execSql($sqlPackage);
                 }
-                if(TCommon::isEmpty($buyer)){
-                    $r["error"] = "status $status requires a buyer";
+            }
+            if(TCommon::isEmpty($buyer)){
+                $r["error"] = "$status requires a client";
+            }else{
+                $sqlQuery = "SELECT * FROM client WHERE client.clientName='$buyer'";
+                $client = TCommon::getOne($sqlQuery);
+                if($client){
+                    $clientId = $client["clientId"];
+                    $sqlUpdate = "UPDATE property SET sub = '$sub',
+                            block = '$block',
+                            lotNum = '$lot',
+                            lotSize = '$size',
+                            lotModel = '$model',
+                            closingDate = '$date',
+                            status = '$status',
+                            clientId = '$clientId'
+                            WHERE propertyId = $id";
+                    if(TCommon::execSql($sqlUpdate)){
+                        $r["success"] = true;
+                        $r['info'] = "edit property successful";
+                    }
                 }
                 else{
-                    $sqlQuery = "SELECT * FROM client WHERE client.clientName = '$buyer'";
-                    $client = TCommon::getOne($sqlQuery);
-                    if($client){
-                        $clientId = $client["clientId"];
-                        $sqlUpdate = "UPDATE property SET sub = '$sub',
-                                block = '$block',
-                                lotNum = '$lot',
-                                lotSize = '$size',
-                                lotModel = '$model',
-                                closingDate = '$date',
-                                status = '$status',
-                                clientId = '$clientId'
-                                WHERE propertyId = $id";
-                        if(TCommon::execSql($sqlUpdate)){
-                            $r["success"] = true;
-                            $r['info'] = "success";
-                        }
-                    }
-                    else{
-                        $r["error"] = "Buyer not in file";
-                    }
+                    $r["error"] = "$buyer not found";
                 }
             }
-            else{
-                $sqlUpdate = "UPDATE property SET sub = '$sub',
-                                            block = '$block',
-                                            lotNum = '$lot',
-                                            lotSize = '$size',
-                                            lotModel = '$model',
-                                            closingDate = '$date',
-                                            status = '$status',
-                                            clientId = 'NULL'
-                                            WHERE propertyId = $id";
+        }
+        else{
+            $sqlUpdate = "UPDATE property SET sub = '$sub',
+                                        block = '$block',
+                                        lotNum = '$lot',
+                                        lotSize = '$size',
+                                        lotModel = '$model',
+                                        closingDate = '$date',
+                                        status = '$status',
+                                        clientId = 'NULL'
+                                        WHERE propertyId = $id";
 
-                $sqlInsert = "INSERT INTO property (status, lotNum, lotSize, closingDate, lotModel, sub, block, clientId)
-                                VALUES('$status','$lot','$size','$date','$model','$sub','$block', 'NULL')";
-                if(TCommon::execSql($sqlUpdate)){
-                    $r['success'] = true;
-                    $r['info'] = "success";
-                }
+            if(TCommon::execSql($sqlUpdate)){
+                $r['success'] = true;
+                $r['info'] = "success";
             }
-        //}
-        //else{
-            //$r["error"] = "$lot exist already";
-        //}
+        }
     }
     echo json_encode($r);
 }
 
 function list_properties(){
-    $query = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId = client.clientId";
+    $query = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId=client.clientId";
     return TCommon::getAll($query);
 }
 
 function del_property(){
-    $lot=$_GET["lotNum"];
-    $sqlExec = "DELETE FROM property WHERE property.lotNum = '$lot'";
+    $id = $_GET["id"];
+    $sqlExec = "DELETE FROM property WHERE property.propertyId='$id'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
-
+        $r['success'] = true;
+        $r['info'] = "delete success";
     }
     TCommon::headerTo("../list_property_page.php");
 }

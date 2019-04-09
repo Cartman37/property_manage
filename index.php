@@ -12,7 +12,7 @@ if($u_name) {?>
         </div>
         <div id="newAppointment" class="form-group">
             <label for="apptDate">Date and Time:</label>
-            <input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
+            <input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM" data-clear-btn="true" class="form-control"/>
         </div>
         <div id="newAppointmentButton" class="form-group ">
             <button class="form-ajax-btn " type="submit">Submit</button>
