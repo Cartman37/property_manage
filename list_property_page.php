@@ -21,6 +21,9 @@ require_once('head.php');
         <td></td>
         <td></td>
     </tr>
+    <tr>
+        <td colspan="11" align="right"><a href="create_property_page.php">Create New Property</a></td>
+    </tr>
     </thead>
     <tbody>
     <?php foreach($arr as $k => $v){ ?>
@@ -48,10 +51,6 @@ require_once('head.php');
         </tr>
     <?php  } ?>
     </tbody>
-    <tr>
-        <td colspan="11" align="right"><a href="create_property_page.php">Create New Property</a></td>
-    </tr>
-
 </table>
 <?php }else{?>
 <h3 class="title">Please login/register first</h3>
