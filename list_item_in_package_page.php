@@ -41,7 +41,6 @@ $packageId = $package['packageId'];
 <hr>
 <h3 class="title">Items in Package</h3><br>
 <input style="display:none" value="<?php echo $packageId?>" name="id" />
-<?php $arr = list_item_in_package(); ?>
 <table class="table">
     <thead>
     <tr>
@@ -52,7 +51,7 @@ $packageId = $package['packageId'];
     </tr>
     </thead>
     <tbody>
-        <?php foreach($arr as $k => $v){ ?>
+        <?php $arr = list_item_in_package(); foreach($arr as $k => $v){ ?>
             <tr>
                 <td><?php echo $v["location"] ;?></td>
                 <td><?php echo $v["itemName"] ;?></td>
