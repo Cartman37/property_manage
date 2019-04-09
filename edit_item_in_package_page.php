@@ -18,7 +18,7 @@ $t = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_item_in_package"
       data-url="list_item_in_package_page.php">
     <h3 class="title">Edit Package Item</h3>
-
+    <input type="hidden" name="id" value="<?php echo $id ?>" />
     <div id="editPackageItem" class="form-group">
         <label>Location</label>
         <input type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
@@ -28,7 +28,7 @@ $t = TCommon::getOne($sql);
         <label>Select Item</label>
         <select id="editPackageItemSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
-                <option value=<?php echo $v["itemId"]?>><?php echo $v["itemName"]?></option>
+                <option value="<?php echo $v["itemName"]?>"><?php echo $v["itemName"]?></option>
             <?php }?>
         </select>
     </div>
