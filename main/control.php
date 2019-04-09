@@ -268,7 +268,7 @@ function create_item(){
         $r["error"] = "item name cannot left blank";
     }
     else{
-        $sql = "SELECT count(*) FROM item WHERE itemName ='$itemName'";
+        $sql = "SELECT count(*) FROM item WHERE itemName='$itemName'";
         if(0 == TCommon::getOneColumn($sql)){
             $sqlInsert = "INSERT INTO item (itemName, itemDescription, itemStandard, itemType_typeId, itemManufacturer_manuId)
                     VALUES ('$itemName', '$itemDescription', '$itemStandard', '$itemType', '$itemManufacturer')";
@@ -316,7 +316,7 @@ function list_items(){
 
 function del_item(){
     $itemName = $_GET["itemName"];
-    $sqlExec = "DELETE FROM item WHERE item.itemName = '$itemName'";
+    $sqlExec = "DELETE FROM item WHERE item.itemName='$itemName'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
         $r['success'] = true;
