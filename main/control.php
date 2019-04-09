@@ -319,7 +319,8 @@ function del_item(){
     $sqlExec = "DELETE FROM item WHERE item.itemName = '$itemName'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
-
+        $r['success'] = true;
+        $r['info'] = "$itemName delete success";
     }
     TCommon::headerTo("../list_item_page.php");
 }
