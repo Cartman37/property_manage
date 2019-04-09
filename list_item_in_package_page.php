@@ -26,7 +26,7 @@ $packageId = $package['packageId'];
         <label>Select Item</label>
         <select id="listItemPackageSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
-                <option value = <?php echo $v["itemName"]?>><?php echo $v["itemName"]?></option>
+                <option value=<?php echo $v["itemId"]?>><?php echo $v["itemName"]?></option>
             <?php }?>
         </select>
     </div>
@@ -36,11 +36,7 @@ $packageId = $package['packageId'];
     </div>
     <div>
 </form>
-
-
-<hr>
 <h3 class="title">Items in Package</h3><br>
-<input style="display:none" value="<?php echo $packageId?>" name="id" />
 <table class="table">
     <thead>
     <tr>

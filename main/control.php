@@ -309,8 +309,8 @@ function edit_item(){
 
 function list_items(){
     $query = "SELECT item.*, itemtype.typeName, itemmanufacturer.manuName FROM item
-    JOIN itemtype ON item.itemType_typeId=itemtype.typeId
-    JOIN itemmanufacturer ON item.itemManufacturer_manuId=itemmanufacturer.manuId";
+        JOIN itemtype ON item.itemType_typeId=itemtype.typeId
+        JOIN itemmanufacturer ON item.itemManufacturer_manuId=itemmanufacturer.manuId";
     return TCommon::getAll($query);
 }
 
@@ -592,7 +592,7 @@ function edit_item_in_package(){
     $item = $_POST["item"];
 
     if(!TCommon::isEmpty($location)){
-        $sqlUpdate = "UPDATE itemtopackage SET itemName = '$item', location = '$location', packageId = '$id'";
+        $sqlUpdate = "UPDATE itemtopackage SET itemName = '$item', location = '$location' WHERE id = '$id'";
 
         if(TCommon::execSql($sqlUpdate)){
             $r['success'] = true;

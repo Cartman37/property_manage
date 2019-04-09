@@ -28,7 +28,7 @@ $t = TCommon::getOne($sql);
         <label>Select Item</label>
         <select id="editPackageItemSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
-                <option value = <?php echo $v["itemName"]?>><?php echo $v["itemName"]?></option>
+                <option value=<?php echo $v["itemId"]?>><?php echo $v["itemName"]?></option>
             <?php }?>
         </select>
     </div>
