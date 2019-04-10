@@ -26,7 +26,15 @@
 
 .title{
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.logo a {
+    padding: 20px 30px;
 }
 
 #heading {
