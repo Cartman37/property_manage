@@ -4,7 +4,7 @@ require_once('head.php');
 // print_r($_SESSION);
 ?>
 <?php if($u_name) {?>
-<form class="form-ajax-post" id="frmAddClient"
+<form class="form-ajax-post frmClient" id="frmAddClient"
       data-action="./main/control.php?act=create_client"
       data-url="list_client_page.php">
     <h3 class="title">Create New Client</h3><br>

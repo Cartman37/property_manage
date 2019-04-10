@@ -48,6 +48,19 @@ if (isset($_SESSION["NAME"])) {
         </div>
     </div>
 </div>
+<!-- welcome message -->
+<div id="welcome">
+    <div class="form_container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="heading">
+                    <h2>Welcome to Property Management for Freure Homes</h2>
+                    <img src="./images/icons/under-heading.png" alt="" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="main-header">
     <div class="container">
         <div class="row">
@@ -72,19 +85,6 @@ if (isset($_SESSION["NAME"])) {
                         <input id="search" type="hidden" />
                         <input type="hidden" id="search-button" />
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- welcome message -->
-<div id="welcome">
-    <div class="form_container">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="heading">
-                    <h2>Welcome to Property Management for Freure Homes</h2>
-                    <img src="./images/icons/under-heading.png" alt="" >
                 </div>
             </div>
         </div>

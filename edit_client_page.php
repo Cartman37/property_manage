@@ -7,7 +7,7 @@ $cl = TCommon::getOne($sql);
 //print_r($cl);
 ?>
 
-<form class="form-ajax-post" id="frmEditClient"
+<form class="form-ajax-post frmClient" id="frmEditClient"
       data-action="./main/control.php?act=edit_client"
       data-url="list_client_page.php">
     <h3 class="title">Edit <?php echo $cl['clientName']?>'s Profile </h3>
