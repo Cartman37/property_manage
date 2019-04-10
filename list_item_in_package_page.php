@@ -24,7 +24,6 @@ $_SESSION["packId"] = $packageId;
         <label>Location</label>
         <input type="text" name="location" class="form-control" />
     </div>
-
     <div class="form-group">
         <label>Select Item</label>
         <select id="listItemPackageSelect" name="item" >
