@@ -149,6 +149,14 @@ CREATE TABLE `itemtopackage` (
 -- 转存表中的数据 `itemtopackage`
 --
 
+INSERT INTO `itemtopackage` (`id`, `itemName`, `packageId`, `location`) VALUES
+(15, 'Cinq White', 1, 'Kitchen Floor'),
+(16, 'Prato Anthracite', 1, 'Bathroom1 Floor'),
+(17, 'Greywood', 1, 'Brick'),
+(18, 'Mancini', 1, 'Bathroom1 Cabinets'),
+(19, 'Arctic - White', 1, 'Kitchen Cabinets'),
+(20, 'Bianco Sardo', 1, 'Kitchen Countertop');
+
 -- --------------------------------------------------------
 
 --
