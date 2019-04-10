@@ -21,7 +21,7 @@ $t = TCommon::getOne($sql);
     <input type="hidden" name="id" value="<?php echo $id ?>" />
     <div id="editPackageItem" class="form-group">
         <label>Location</label>
-        <input type="text" name="location" value="<?php echo $t['location'] ?>" class="form-control" />
+        <input type="text" name="location" value="<?php echo $t['location']?>" class="form-control" />
     </div>
 
     <div class="form-group">

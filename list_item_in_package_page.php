@@ -30,7 +30,7 @@ $_SESSION["packId"] = $packageId;
         <label>Select Item</label>
         <select id="listItemPackageSelect" name="item" >
             <?php $types = listItems();foreach($types as $k=>$v){?>
-                <option value=<?php echo $v["itemName"]?>><?php echo $v["itemName"]?></option>
+                <option value="<?php echo $v["itemName"]?>"><?php echo $v["itemName"]?></option>
             <?php }?>
         </select>
     </div>
