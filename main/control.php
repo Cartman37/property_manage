@@ -308,7 +308,8 @@ function edit_item(){
 function list_items(){
     $query = "SELECT item.*, itemtype.typeName, itemmanufacturer.manuName FROM item
         LEFT JOIN itemtype ON item.itemType_typeId=itemtype.typeId
-        LEFT JOIN itemmanufacturer ON item.itemManufacturer_manuId=itemmanufacturer.manuId";
+        LEFT JOIN itemmanufacturer ON item.itemManufacturer_manuId=itemmanufacturer.manuId
+        ORDER BY itemtype.typeName, item.itemName";
     return TCommon::getAll($query);
 }
 
