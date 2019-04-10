@@ -35,6 +35,8 @@ $p = TCommon::getOne($sql);
     <div id="editProperty" class="form-group">
         <label>Model:</label>
         <select id="editPropertyModel" name="p_model"">
+            <option value="N/A"
+                <?php echo $p['lotModel']=='N/A'?'selected':''?>>Meadow</option>
             <option value="Bridgeport"
                 <?php echo $p['lotModel']=='Bridgeport'?'selected':''?>>Bridgeport</option>
             <option value="Brookside"

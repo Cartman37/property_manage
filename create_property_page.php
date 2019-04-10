@@ -29,6 +29,7 @@ require_once('head.php');
     <div id="newProperty" class="form-group">
         <label>Model:</label>
         <select id="newPropertyStatus" name="p_model">
+            <option value="N/A">N/A</option>
             <option value="Bridgeport">Bridgeport</option>
             <option value="Brookside">Brookside</option>
             <option value="Meadow">Meadow</option>
