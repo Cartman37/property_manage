@@ -16,8 +16,7 @@ $packageId = $package['packageId'];
 $_SESSION["packId"] = $packageId;
 ?>
 <h1 class="title">Package for <?php echo $property["sub"]." ".$property['block']."-".$property['lotNum'] ?></h1>
-<form class="form-ajax-post"
-      data-action="./main/control.php?act=add_item_to_package"
+<form class="form-ajax-post" data-action="./main/control.php?act=add_item_to_package"
       data-url="list_item_in_package_page.php">
     <h3 class="title">Add New Item</h3><br>
     <input style="display:none" value="<?php echo $packageId?>" name="id"/>
@@ -34,12 +33,10 @@ $_SESSION["packId"] = $packageId;
             <?php }?>
         </select>
     </div>
-
     <div id="listItemPackageButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add to Package</button>
     </div>
-    <div>
-</form>
+</form><br>
 <h3 class="title">Items in Package</h3><br>
 <table class="table">
     <thead>
