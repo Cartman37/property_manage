@@ -37,6 +37,10 @@
     padding: 20px 30px;
 }
 
+a:hover {
+    color: #162c54;
+}
+
 #heading {
     text-align: center;
     padding: 15px 0;
