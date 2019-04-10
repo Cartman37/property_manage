@@ -25,7 +25,7 @@ if($u_name) {?>
         <label>Type:</label>
         <select id="newItemType" name="itemType">
         <?php $types = listTypes();foreach($types as $k=>$v){?>
-            <option value = <?php echo $v["typeId"]?>><?php echo $v["typeName"]?></option>
+            <option value=<?php echo $v["typeId"]?>><?php echo $v["typeName"]?></option>
         <?php }?>
         </select>
     </div>
@@ -60,7 +60,7 @@ if($u_name) {?>
             <tr>
                 <td><?php echo $v["itemName"] ;?></td>
                 <td><?php echo $v["itemDescription"] ;?></td>
-                <td><?php echo $v["itemStandard"] ;?></td>
+                <td><?php echo $v["itemStandard"]==1?"Standard":"Upgrade"?></td>
                 <td><?php echo $v["typeName"] ;?></td>
                 <td><?php echo $v["manuName"] ;?></td>
                 <td><a href="./edit_item_page.php?id=<?php echo $v["itemId"]?>">Edit</a></td>
