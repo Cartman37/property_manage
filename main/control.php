@@ -167,7 +167,7 @@ function getLoginUserName()
 
 //--client--
 function list_clients(){
-    $query = "select * from client ";
+    $query = "select * from client ORDER BY client.clientName";
     return TCommon::getAll($query);
 }
 
