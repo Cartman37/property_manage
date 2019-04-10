@@ -596,16 +596,16 @@ function edit_item_in_package(){
 
 //--other---------------------------------------------------------------------------------------------------------------
 function listTypes(){
-    $sql = "SELECT * FROM itemType";
+    $sql = "SELECT * FROM itemType ORDER BY itemtype.typeName";
     return TCommon::getAll($sql);
 }
 
 function listManus(){
-    $sql = "SELECT * FROM itemManufacturer";
+    $sql = "SELECT * FROM itemManufacturer ORDER BY itemmanufacturer.manuName";
     return TCommon::getAll($sql);
 }
 
 function listItems(){
-    $sql = "SELECT * FROM item";
+    $sql = "SELECT * FROM item ORDER BY item.itemName";
     return TCommon::getAll($sql);
 }
