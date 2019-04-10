@@ -543,7 +543,6 @@ function del_property(){
 
 //--item_to_package-------------------------------------------------------------------------------------------------------------
 function list_item_in_package(){
-
     $query = "SELECT itemtopackage.* FROM itemtopackage ";
     return TCommon::getAll($query);
 }
@@ -594,7 +593,7 @@ function edit_item_in_package(){
         }
     }
     else{
-        $r['error'] = "Location cannot left blank";
+        $r['error'] = "Location required";
     }
     echo json_encode($r);
 }

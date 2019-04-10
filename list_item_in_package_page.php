@@ -9,12 +9,10 @@ if(isset($_GET['id'])){
 }
 $sqlProperty = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId = client.clientId WHERE property.propertyId = '$propertyId'";
 $property = TCommon::getOne($sqlProperty);
-//echo $propertyId;
 
 $sqlPackage = "SELECT package.* FROM package WHERE package.propertyId = '$propertyId'";
 $package = TCommon::getOne($sqlPackage);
 $packageId = $package['packageId'];
-//echo $packageId;
 ?>
 <h1 class="title">Package for <?php echo $property["sub"]." ".$property['block']."-".$property['lotNum'] ?></h1>
 <form class="form-ajax-post"
