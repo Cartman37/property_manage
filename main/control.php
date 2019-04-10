@@ -362,7 +362,7 @@ function list_appointments(){
 }
 
 function del_appointment(){
-    $apptId=$_GET["apptId"];
+    $apptId = $_GET["id"];
     $sqlExec = "DELETE FROM appointment WHERE appointment.apptId='$apptId'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
@@ -389,7 +389,7 @@ function edit_appointment(){
         $r['success'] = true;
         $r['info'] = "Appointment updated success";
     }else{
-        $r['info'] = "cannot locate client with name $clientName";
+        $r['info'] = "cannot locate client $clientName";
     }
     echo json_encode($r);
 
