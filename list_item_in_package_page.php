@@ -13,6 +13,7 @@ $property = TCommon::getOne($sqlProperty);
 $sqlPackage = "SELECT package.* FROM package WHERE package.propertyId = '$propertyId'";
 $package = TCommon::getOne($sqlPackage);
 $packageId = $package['packageId'];
+$_SESSION["packId"] = $packageId;
 ?>
 <h1 class="title">Package for <?php echo $property["sub"]." ".$property['block']."-".$property['lotNum'] ?></h1>
 <form class="form-ajax-post"
