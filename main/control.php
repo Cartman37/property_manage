@@ -140,10 +140,10 @@ function userLogin()
             $r['info'] = "$name login success";
             TCommon::setSession('NAME', $name);
         } else {
-            $r["error"] = "password wrong";
+            $r["error"] = "Invalid password";
         }
     } else {
-        $r["error"] = "null exception";
+        $r["error"] = "exception";
     }
     echo json_encode($r);
 }
@@ -185,10 +185,10 @@ function create_client(){
     $details = $_POST["clientDetails"];
 
     if(TCommon::isEmpty($clientName) || TCommon::isEmpty($phone1)){
-        $r["error"] = "client name and phone number 1 cannot left blank";
+        $r["error"] = "client name and phone number 1 required";
     }
     else if(!preg_match("/\(? (\d{3})? \)? (?(1) [\-\s])\d{3}-\d{4}/x", $phone1)){
-        $r["error"] = "phone number entered not in valid format";
+        $r["error"] = "phone number invalid";
     }
     else{
         $sql = "SELECT count(*) FROM client WHERE clientName ='$clientName'";
@@ -223,8 +223,6 @@ function edit_client(){
     $email = $_POST["clientEmail"];
     $details = $_POST["clientDetails"];
 
-    //$sqlQuery = "SELECT * FROM client WHERE client.clientName = '$clientName'";
-
     $sql = "UPDATE client SET clientName = '$clientName',
             clientAddress1 = '$address1',
             clientAddress2 = '$address2',
@@ -239,7 +237,7 @@ function edit_client(){
 
     TCommon::execSql($sql);
     $r['success'] = true;
-    $r['info'] = "Client info updated success";
+    $r['info'] = "$clientName's info updated";
 
     echo json_encode($r);
 }
@@ -265,7 +263,7 @@ function create_item(){
     $itemManufacturer = $_POST["itemManufacturer"];
 
     if(TCommon::isEmpty($itemName)){
-        $r["error"] = "item name cannot left blank";
+        $r["error"] = "item name required";
     }
     else{
         $sql = "SELECT count(*) FROM item WHERE itemName='$itemName'";
@@ -320,7 +318,7 @@ function del_item(){
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
         $r['success'] = true;
-        $r['info'] = "delete success";
+        $r['info'] = "delete item successful";
     }
     TCommon::headerTo("../list_item_page.php");
 }
@@ -349,7 +347,7 @@ function create_appointment(){
             $r['info'] = "Appointment created success";
         }
     }else{
-       $r['info'] = "cannot locate clientId by name $clientName";
+       $r['info'] = "cannot locate $clientName";
     }
     echo json_encode($r);
 }
@@ -367,7 +365,7 @@ function del_appointment(){
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
         $r['success'] = true;
-        $r['info'] = "delete success";
+        $r['info'] = "delete appointment successful";
     }
     TCommon::headerTo("../index.php");
 }
@@ -387,7 +385,7 @@ function edit_appointment(){
         $sql = "UPDATE appointment SET apptDate='$apptDate', Client_clientId='$clientId' WHERE apptId='$id'";
         TCommon::execSql($sql);
         $r['success'] = true;
-        $r['info'] = "Appointment updated success";
+        $r['info'] = "Appointment updated successfully";
     }else{
         $r['info'] = "cannot locate client $clientName";
     }
