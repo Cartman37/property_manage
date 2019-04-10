@@ -48,6 +48,7 @@ $_SESSION["packId"] = $packageId;
         <td>Item Type</td>
         <td>Item Manufacturer</td>
         <td>Item Name</td>
+        <td>Standard?</td>
         <td>Edit</td>
         <td>Delete</td>
     </tr>
