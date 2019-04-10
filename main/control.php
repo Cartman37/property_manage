@@ -537,7 +537,11 @@ function del_property(){
 //--item_to_package-------------------------------------------------------------------------------------------------------------
 function list_item_in_package(){
     $packId = $_SESSION["packId"];
-    $query = "SELECT itemtopackage.* FROM itemtopackage WHERE itemtopackage.packageId='$packId'";
+    $query = "SELECT itemtopackage.*, item.*, itemtype.typeName, itemmanufacturer.manuName FROM itemtopackage 
+        LEFT JOIN item ON itemtopackage.itemName=item.itemName
+        LEFT JOIN itemtype ON item.itemType_typeId=itemtype.typeId 
+        LEFT JOIN itemmanufacturer ON item.itemManufacturer_manuId=itemmanufacturer.manuId
+        WHERE itemtopackage.packageId='$packId'";
     return TCommon::getAll($query);
 }
 

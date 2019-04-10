@@ -45,6 +45,8 @@ $_SESSION["packId"] = $packageId;
     <thead>
     <tr>
         <td>Location</td>
+        <td>Item Type</td>
+        <td>Item Manufacturer</td>
         <td>Item Name</td>
         <td>Edit</td>
         <td>Delete</td>
@@ -54,6 +56,8 @@ $_SESSION["packId"] = $packageId;
         <?php $arr = list_item_in_package(); foreach($arr as $k => $v){ ?>
             <tr>
                 <td><?php echo $v["location"] ;?></td>
+                <td><?php echo $v["typeName"] ;?></td>
+                <td><?php echo $v["manuName"] ;?></td>
                 <td><?php echo $v["itemName"] ;?></td>
                 <td><a href="./edit_item_in_package_page.php?id=<?php echo $v["id"]?>">Edit</a></td>
                 <td><a href="./main/control.php?act=delete_item_from_package&id=<?php echo $v["id"]?>">Delete</a></td>
