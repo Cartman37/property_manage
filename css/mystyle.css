@@ -24,7 +24,7 @@
     float:right;
 }*/
 
-.title{
+.title {
     text-align: center;
     margin-top: 30px;
 }
@@ -47,13 +47,10 @@
     text-shadow: 1px 1px 0 black;
 }
 
-#main-header ul li a{
+#main-header ul li a {
     padding:20px 40px;
     font-size:20px;
     margin-right:10px;
-}
- {
-    width: 53px;
 }
 
 #heading h2 {
@@ -65,32 +62,32 @@
     text-shadow: 1px 1px 0 black;
 }
 
-.form-group{
+.form-group {
     width:100%;
     margin:5px;
     text-align:center;
 }
 
-.form-group label{
+.form-group label {
     display: inline-block;
     width: 120px;
     margin-right:3px;
     text-align: right;
 }
 
-.form-group input{
+.form-group input {
     display: inline-block;
     width: 290px!important;
     margin: 10px;
 }
 
-.form-group button{
+.form-group button {
     width: 150px!important;
     margin-right: 15px;
     text-align: center;
 }
 
-.form-group select{
+.form-group select {
     display: inline-block;
     width: 290px!important;
     margin: 10px;
@@ -106,13 +103,13 @@
     left: 0;
 }
 
-#foot p{
+#foot p {
     text-align: center;
     color: #CCCCCC;
     margin-top: 15px;
 }
 
-.table{
+.table {
     margin: 10px 5% 60px;
     border-collapse: collapse;
     width: 90%;
