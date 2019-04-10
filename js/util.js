@@ -1,57 +1,37 @@
 function Validate_frmAddClient() {
-    var form = $("#frmAddVehicle");
+    var form = $("#frmAddClient");
     form.validate(
         {
             rules: {
-                name: {
-                    required: true,
-                    rangelength: [2, 30]
+                clientName: {
+                    required: true
                 },
-                address: {
-                    required: true,
+                clientAddress1: {
                     addressCheck: true
                 },
-                city: {
-                    required: true,
-                    rangelength: [2, 30]
-                },
-                phone: {
+                clientPhone1: {
                     required: true,
                     phoneCheck: true
                 },
-                email: {
+                clientEmail: {
                     required: true,
                     email: true
-                },
-                vehicleInfo: {
-                    required: true,
-                    vehicleCheck: true
                 }
             },
             messages: {
-                name: {
-                    required: "Seller name is required",
-                    rangelength: "Must be 2-30 characters long"
+                clientName: {
+                    required: "Client is required"
                 },
-                address: {
-                    required: "Address is required",
-                    addressCheck: "Invalid address"
+                clientAddress1: {
+                    addressCheck: "Invalid Address"
                 },
-                city: {
-                    required: "City is required",
-                    rangelength: "Must be 2-30 characters long"
+                clientPhone1: {
+                    required: "Phone1 is required",
+                    phoneCheck: "Invalid phone number"
                 },
-                phone: {
-                    required: "Phone number is required",
-                    phoneCheck: "Invalid phone number (123-123-1234 or (123)123-1234)"
-                },
-                email: {
-                    required: "Email address is required",
-                    email: "Invalid email address"
-                },
-                vehicleInfo: {
-                    required: "Vehicle information is required",
-                    vehicleCheck: "Invalid vehicle information (2018 BMW 328i)"
+                clientEmail: {
+                    required: "Email is required",
+                    email: "invalid email address"
                 }
             }
         });
