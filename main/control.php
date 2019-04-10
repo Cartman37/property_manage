@@ -520,7 +520,7 @@ function edit_property(){
 
 function list_properties(){
     $query = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId=client.clientId
-        ORDER BY property.lotNum, property.block, property.sub";
+        ORDER BY cast(property.lotNum as INTEGER), property.block, property.sub";
     return TCommon::getAll($query);
 }
 
