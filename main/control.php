@@ -357,7 +357,7 @@ function create_appointment(){
 function list_appointments(){
     $uid = $_SESSION['ID'];
     $query = "SELECT  appointment.apptId, appointment.apptDate, client.clientName, client.clientPhone1, client.clientEmail FROM appointment
-        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId='$uid'";
+        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId='$uid' ORDER BY appointment.apptDate";
     return TCommon::getAll($query);
 }
 
