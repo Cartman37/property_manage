@@ -67,6 +67,11 @@ a:hover {
     text-shadow: 1px 1px 0 black;
 }
 
+#error {
+    color:red;
+    text-align:center;
+}
+
 .form-group {
     width:100%;
     margin:5px;

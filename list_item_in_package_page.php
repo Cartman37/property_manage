@@ -19,7 +19,7 @@ $_SESSION["packId"] = $packageId;
 <form class="form-ajax-post" data-action="./main/control.php?act=add_item_to_package"
       data-url="list_item_in_package_page.php">
     <h3 class="title">Add New Item</h3><br>
-    <p id="error" style="color:red"></p>
+    <p id="error"></p>
     <input style="display:none" value="<?php echo $packageId?>" name="id"/>
     <div id="listItemPackage" class="form-group">
         <label>Location</label>
