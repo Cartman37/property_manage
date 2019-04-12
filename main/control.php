@@ -88,15 +88,14 @@ if (isset($_GET['act'])) {
 function userRegister()
 {
     $r["success"] = false;
-    $name = $_POST["name"];
-    $pwd = trim($_POST["pwd"]);
-    $pwd1 = trim($_POST["pwd_a"]);
-    $email = $_POST["email"];
-    $tel = $_POST["tel"];
+    $name = test_input($_POST["name"]);
+    $pwd = test_input($_POST["pwd"]);
+    $pwd1 = test_input($_POST["pwd_a"]);
+    $email = test_input($_POST["email"]);
+    $tel = test_input($_POST["tel"]);
 
     if (!TCommon::isEmpty($name)
-        && !TCommon::isEmpty($pwd)
-    ) {
+        && !TCommon::isEmpty($pwd)) {
         if ($pwd1 !== $pwd) {
             $r["error"] = "password are not match";
         } else {
@@ -124,8 +123,8 @@ function userRegister()
 function userLogin()
 {
     $r["success"] = false;
-    $name = $_POST["name"];
-    $pwd = trim($_POST["pwd"]);
+    $name = test_input($_POST["name"]);
+    $pwd = test_input($_POST["pwd"]);
     if (!TCommon::isEmpty($name) && !TCommon::isEmpty($pwd)) {
         $pwd_ = md5($pwd);
         $tbl = TCommon::$userTbl;
@@ -173,16 +172,16 @@ function list_clients(){
 
 function create_client(){
     $r["success"] = false;
-    $clientName = $_POST["clientName"];
-    $address1 = $_POST["clientAddress1"];
-    $address2 = $_POST["clientAddress2"];
-    $city = $_POST["clientCity"];
-    $province = $_POST["clientProv"];
-    $postal = $_POST["clientPostal"];
-    $phone1 = $_POST["clientPhone1"];
-    $phone2 = $_POST["clientPhone2"];
-    $email = $_POST["clientEmail"];
-    $details = $_POST["clientDetails"];
+    $clientName = test_input($_POST["clientName"]);
+    $address1 = test_input($_POST["clientAddress1"]);
+    $address2 = test_input($_POST["clientAddress2"]);
+    $city = test_input($_POST["clientCity"]);
+    $province = test_input($_POST["clientProv"]);
+    $postal = test_input($_POST["clientPostal"]);
+    $phone1 = test_input($_POST["clientPhone1"]);
+    $phone2 = test_input($_POST["clientPhone2"]);
+    $email = test_input($_POST["clientEmail"]);
+    $details = test_input($_POST["clientDetails"]);
 
     if(TCommon::isEmpty($clientName) || TCommon::isEmpty($phone1)){
         $r["error"] = "client name and phone number 1 required";
@@ -210,18 +209,18 @@ function create_client(){
 
 function edit_client(){
     $r["success"] = false;
-    $id = $_POST["id"];
+    $id = test_input($_POST["id"]);
 
-    $clientName = $_POST["clientName"];
-    $address1 = $_POST["clientAddress1"];
-    $address2 = $_POST["clientAddress2"];
-    $city = $_POST["clientCity"];
-    $province = $_POST["clientProv"];
-    $postal = $_POST["clientPostal"];
-    $phone1 = $_POST["clientPhone1"];
-    $phone2 = $_POST["clientPhone2"];
-    $email = $_POST["clientEmail"];
-    $details = $_POST["clientDetails"];
+    $clientName = test_input($_POST["clientName"]);
+    $address1 = test_input($_POST["clientAddress1"]);
+    $address2 = test_input($_POST["clientAddress2"]);
+    $city = test_input($_POST["clientCity"]);
+    $province = test_input($_POST["clientProv"]);
+    $postal = test_input($_POST["clientPostal"]);
+    $phone1 = test_input($_POST["clientPhone1"]);
+    $phone2 = test_input($_POST["clientPhone2"]);
+    $email = test_input($_POST["clientEmail"]);
+    $details = test_input($_POST["clientDetails"]);
 
     $sql = "UPDATE client SET clientName = '$clientName',
             clientAddress1 = '$address1',
@@ -256,11 +255,11 @@ function del_client(){
 //--item--
 function create_item(){
     $r["success"] = false;
-    $itemName = $_POST["itemName"];
-    $itemDescription = $_POST["itemDescription"];
-    $itemStandard = $_POST["itemStandard"];
-    $itemType = $_POST["itemType"];
-    $itemManufacturer = $_POST["itemManufacturer"];
+    $itemName = test_input($_POST["itemName"]);
+    $itemDescription = test_input($_POST["itemDescription"]);
+    $itemStandard = test_input($_POST["itemStandard"]);
+    $itemType = test_input($_POST["itemType"]);
+    $itemManufacturer = test_input($_POST["itemManufacturer"]);
 
     if(TCommon::isEmpty($itemName)){
         $r["error"] = "item name required";
@@ -285,12 +284,12 @@ function create_item(){
 
 function edit_item(){
     $r["success"] = false;
-    $id = $_POST["id"];
-    $itemName = $_POST["itemName"];
-    $itemDescription = $_POST["itemDescription"];
-    $itemStandard = $_POST["itemStandard"];
-    $itemType = $_POST["itemType"];
-    $itemManufacturer = $_POST["itemManufacturer"];
+    $id = test_input($_POST["id"]);
+    $itemName = test_input($_POST["itemName"]);
+    $itemDescription = test_input($_POST["itemDescription"]);
+    $itemStandard = test_input($_POST["itemStandard"]);
+    $itemType = test_input($_POST["itemType"]);
+    $itemManufacturer = test_input($_POST["itemManufacturer"]);
 
     $sql = "UPDATE item SET itemName='$itemName',
             itemDescription='$itemDescription',
@@ -300,7 +299,7 @@ function edit_item(){
             WHERE itemId='$id'";
     TCommon::execSql($sql);
     $r['success'] = true;
-    $r['info'] = "$itemName edited success";
+    $r['info'] = "$itemName edit success";
 
     echo json_encode($r);
 }
@@ -314,7 +313,7 @@ function list_items(){
 }
 
 function del_item(){
-    $itemId = $_GET["id"];
+    $itemId = test_input($_GET["id"]);
     $sqlExec = "DELETE FROM item WHERE item.itemId='$itemId'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
@@ -329,8 +328,8 @@ function create_appointment(){
     $r["success"] = false;
 
     $uid = $_SESSION['ID'];
-    $clientName = $_POST["clientName"];
-    $apptDate = $_POST["apptDate"];
+    $clientName = test_input($_POST["clientName"]);
+    $apptDate = test_input($_POST["apptDate"]);
 
     $clientId = false;
     $sqlQuery = "SELECT * FROM client WHERE client.clientName='$clientName'";
@@ -373,9 +372,9 @@ function del_appointment(){
 
 function edit_appointment(){
     $r["success"] = false;
-    $id = $_POST["id"];
-    $clientName = $_POST["clientName"];
-    $apptDate = $_POST["apptDate"];
+    $id = test_input($_POST["id"]);
+    $clientName = test_input($_POST["clientName"]);
+    $apptDate = test_input($_POST["apptDate"]);
 
     $sqlQuery = "SELECT * FROM client WHERE client.clientName='$clientName'";
     $client = TCommon::getOne($sqlQuery);
@@ -399,14 +398,14 @@ function edit_appointment(){
 function create_property(){
     $r["success"] = false;
 
-    $sub = $_POST["p_sub"];
-    $block = $_POST["p_block"];
-    $lot = $_POST["p_lotnum"];
-    $size = $_POST["p_size"];
-    $model = $_POST["p_model"];
-    $date = $_POST["p_closingdate"];
-    $status = $_POST["p_status"];
-    $buyer = $_POST["p_buyer"];
+    $sub = test_input($_POST["p_sub"]);
+    $block = test_input($_POST["p_block"]);
+    $lot = test_input($_POST["p_lotnum"]);
+    $size = test_input($_POST["p_size"]);
+    $model = test_input($_POST["p_model"]);
+    $date = test_input($_POST["p_closingdate"]);
+    $status = test_input($_POST["p_status"]);
+    $buyer = test_input($_POST["p_buyer"]);
 
     if(TCommon::isEmpty($lot) || TCommon::isEmpty($sub) || TCommon::isEmpty($block)){
         $r["error"] = "Lot#, sub, block required";
@@ -448,16 +447,15 @@ function create_property(){
 function edit_property(){
 
     $r["success"] = false;
-    $id=$_POST["id"];
-
-    $sub = $_POST["p_sub"];
-    $block = $_POST["p_block"];
-    $lot = $_POST["p_lotnum"];
-    $size = $_POST["p_size"];
-    $model = $_POST["p_model"];
-    $date = $_POST["p_closingdate"];
-    $status = $_POST["p_status"];
-    $buyer = $_POST["p_buyer"];
+    $id = test_input($_POST["id"]);
+    $sub = test_input($_POST["p_sub"]);
+    $block = test_input($_POST["p_block"]);
+    $lot = test_input($_POST["p_lotnum"]);
+    $size = test_input($_POST["p_size"]);
+    $model = test_input($_POST["p_model"]);
+    $date = test_input($_POST["p_closingdate"]);
+    $status = test_input($_POST["p_status"]);
+    $buyer = test_input($_POST["p_buyer"]);
 
     if(TCommon::isEmpty($lot) || TCommon::isEmpty($sub) || TCommon::isEmpty($block)){
         $r["error"] = "Lot#, sub, and block required";
@@ -524,7 +522,7 @@ function list_properties(){
 }
 
 function del_property(){
-    $id = $_GET["id"];
+    $id = test_input($_GET["id"]);
     $sqlExec = "DELETE FROM property WHERE property.propertyId='$id'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
@@ -537,7 +535,7 @@ function del_property(){
 
 //--item_to_package-------------------------------------------------------------------------------------------------------------
 function list_item_in_package(){
-    $packId = $_SESSION["packId"];
+    $packId = test_input($_SESSION["packId"]);
     $query = "SELECT itemtopackage.*, item.*, itemtype.typeName, itemmanufacturer.manuName FROM itemtopackage 
         LEFT JOIN item ON itemtopackage.itemName=item.itemName
         LEFT JOIN itemtype ON item.itemType_typeId=itemtype.typeId 
@@ -548,9 +546,9 @@ function list_item_in_package(){
 
 function add_item_to_package(){
     $r['success'] = false;
-    $id = $_POST["id"];
-    $location = $_POST["location"];
-    $item = $_POST["item"];
+    $id = test_input($_POST["id"]);
+    $location = test_input($_POST["location"]);
+    $item = test_input($_POST["item"]);
 
     if(!TCommon::isEmpty($location)){
         $sqlInsert = "INSERT INTO itemtopackage (itemName,location,packageId) VALUES ('$item','$location','$id')";
@@ -567,28 +565,29 @@ function add_item_to_package(){
 }
 
 function delete_item_from_package(){
-    $id=$_GET["id"];
+    $id = test_input($_GET["id"]);
     $sqlExec = "DELETE FROM itemtopackage WHERE id='$id'";
 
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
-
+        $r['success'] = true;
+        $r['info'] = "Delete Success";
     }
     TCommon::headerTo("../list_item_in_package_page.php");
 }
 
 function edit_item_in_package(){
     $r['success'] = false;
-    $id = $_POST["id"];
-    $location = $_POST["location"];
-    $item = $_POST["item"];
+    $id = test_input($_POST["id"]);
+    $location = test_input($_POST["location"]);
+    $item = test_input($_POST["item"]);
 
     if(!TCommon::isEmpty($location)){
         $sqlUpdate = "UPDATE itemtopackage SET itemName = '$item', location = '$location' WHERE id = '$id'";
 
         if(TCommon::execSql($sqlUpdate)){
             $r['success'] = true;
-            $r['info'] = "Success";
+            $r['info'] = "Edit Success";
         }
     }else{
         $r['error'] = "Location required";
@@ -612,4 +611,11 @@ function listManus(){
 function listItems(){
     $sql = "SELECT * FROM item ORDER BY item.itemName";
     return TCommon::getAll($sql);
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
