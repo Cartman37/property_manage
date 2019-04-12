@@ -6,6 +6,7 @@ if($u_name) {?>
       data-action="./main/control.php?act=create_item"
       data-url="list_item_page.php">
     <h3 class="title">Create New Item</h3><br>
+    <p id="error" style="color:red"></p>
     <div id="newItem" class="form-group">
         <label>Item name:</label>
         <input name="itemName" type="text" class="form-control"/>

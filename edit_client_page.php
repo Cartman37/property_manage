@@ -11,6 +11,7 @@ $cl = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_client"
       data-url="list_client_page.php">
     <h3 class="title">Edit <?php echo $cl['clientName']?>'s Profile </h3>
+    <p id="error" style="color:red"></p>
     <input style="display:none" value="<?php echo $id?>" name="id"/>
     <div id="editClient" class="form-group">
         <label>Client name:</label>

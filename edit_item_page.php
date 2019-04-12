@@ -10,6 +10,7 @@ $item = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_item"
       data-url="list_item_page.php">
     <h3 class="title">Edit <?php echo $item['itemName'] ?></h3>
+    <p id="error" style="color:red"></p>
     <input type="hidden" value="<?php echo $id?>" name="id" />
     <div id="editItem" class="form-group">
         <label>Item name:</label>

@@ -7,6 +7,7 @@ require_once('head.php');
       data-action="./main/control.php?act=create_property"
       data-url="list_property_page.php">
     <h3 class="title">Create New Property</h3>
+    <p id="error" style="color:red"></p>
     <div class="form-group">
         <label>Subdivision:</label>
         <select id="newPropertyStatus" name="p_sub">

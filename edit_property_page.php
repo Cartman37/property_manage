@@ -11,6 +11,7 @@ $p = TCommon::getOne($sql);
       data-url="list_property_page.php">
     <input style="display:none" value="<?php echo $id ?>" name="id" />
     <h3 class="title">Edit <?php echo $p["sub"]." ".$p['block']."-".$p['lotNum']?></h3>
+    <p id="error" style="color:red"></p>
     <div id="editProperty" class="form-group">
         <label>Subdivision:</label>
         <select id="editPropertySubdivision" name="p_sub">

@@ -44,7 +44,7 @@ function commonSucHdl(r){
     alert(r.info);
 }
 function commonErrHdl(r){
-    alert(r.error);
+    $("#error").val(r.error);
 }
 function headerPage(url){
     window.location.href=url;

@@ -18,6 +18,7 @@ $t = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_item_in_package"
       data-url="list_item_in_package_page.php">
     <h3 class="title">Edit Package Item</h3>
+    <p id="error" style="color:red"></p>
     <input type="hidden" name="id" value="<?php echo $id ?>" />
     <div id="editPackageItem" class="form-group">
         <label>Location</label>

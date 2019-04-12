@@ -6,6 +6,7 @@ if($u_name) {?>
         data-action="./main/control.php?act=create_appointment"
         data-url="index.php">
         <h3 class="title">Create New Appointment</h3><br>
+        <p id="error" style="color:red"></p>
         <div id="newAppointment" class="form-group">
             <label for="clientName">Client name:</label>
             <input name="clientName" type="text" class="form-control"/>

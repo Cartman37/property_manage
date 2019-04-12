@@ -5,6 +5,7 @@ require_once('head.php');
 <form id="userLogin" class="form-ajax-post"
 data-action="./main/control.php?act=user_login"
     data-url="index.php">
+    <p id="error" style="color:red"></p>
 	<div class="form-group">
 		<label>Username:</label>
 		<input name="name" type="text" class="form-control"/>

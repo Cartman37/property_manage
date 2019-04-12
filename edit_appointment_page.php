@@ -9,6 +9,7 @@ $app = TCommon::getOne($sql);
     data-action="./main/control.php?act=edit_appointment"
     data-url="index.php">
     <h3 class="title">Edit Appointment</h3>
+    <p id="error" style="color:red"></p>
     <input style="display:none" value="<?php echo $id?>" name="id" />
 	<div id="editAppointment" class="form-group">
 		<label>Client Name:</label>

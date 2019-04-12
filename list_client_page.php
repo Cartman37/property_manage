@@ -8,6 +8,7 @@ require_once('head.php');
       data-action="./main/control.php?act=create_client"
       data-url="list_client_page.php">
     <h3 class="title">Create New Client</h3><br>
+    <p id="error" style="color:red"></p>
     <div id="newClient" class="form-group">
         <label>Client Name:</label>
         <input name="clientName" type="text" class="form-control"/>
