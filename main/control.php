@@ -209,7 +209,6 @@ function create_client(){
 function edit_client(){
     $r["success"] = false;
     $id = test_input($_POST["id"]);
-
     $clientName = test_input($_POST["clientName"]);
     $address1 = test_input($_POST["clientAddress1"]);
     $address2 = test_input($_POST["clientAddress2"]);

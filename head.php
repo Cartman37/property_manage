@@ -37,8 +37,8 @@ if (isset($_SESSION["NAME"])) {
                 <div class="home-account">
                     <?php if ($u_name === FALSE) { ?>
                         <span>Property Management</span> |
-                        <a href="user_login.php">Login</a> |
-                        <a href="user_register.php">Register</a>
+                        <a href="user_login.php">Login</a> <!--|
+                        <a href="user_register.php">Register</a>-->
                     <?php } else { ?>
                         <span> Welcome, <?php echo $u_name ?></span> |
                         <a href="./main/control.php?act=out">Logout</a>
