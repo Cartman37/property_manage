@@ -127,7 +127,6 @@ function userLogin()
     $pwd = test_input($_POST["pwd"]);
     if (!TCommon::isEmpty($name) && !TCommon::isEmpty($pwd)) {
         $pwd_ = md5($pwd);
-        $tbl = TCommon::$userTbl;
         $sqlSearch = "SELECT userPass FROM user WHERE userName='$name'";
         if ($pwd_ === TCommon::getOneColumn($sqlSearch)) {
             //get UserID begin
@@ -184,7 +183,7 @@ function create_client(){
     $details = test_input($_POST["clientDetails"]);
 
     if(TCommon::isEmpty($clientName) || TCommon::isEmpty($phone1)){
-        $r["error"] = "client name and phone number 1 required";
+        $r["error"] = "client name and phone #1 required";
     }
     else if(!preg_match("/\(? (\d{3})? \)? (?(1) [\-\s])\d{3}-\d{4}/x", $phone1)){
         $r["error"] = "phone number invalid";
@@ -200,7 +199,7 @@ function create_client(){
             }
         }
         else{
-            $r["error"] = "$clientName exist already";
+            $r["error"] = "$clientName exists already";
         }
     }
 
@@ -236,7 +235,7 @@ function edit_client(){
 
     TCommon::execSql($sql);
     $r['success'] = true;
-    $r['info'] = "$clientName's info updated";
+    $r['info'] = "$clientName updated";
 
     echo json_encode($r);
 }
