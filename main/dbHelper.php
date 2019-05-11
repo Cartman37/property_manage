@@ -7,7 +7,7 @@ Class DbHelper{
     public $putErrorInfo=TRUE;
     public function __construct($dbConfig){
         try{
-            $this->pdo = new PDO('mysql:host='.$dbConfig["host"].';dbname='.$dbConfig["dbName"], $dbConfig["user"],$dbConfig["pwd"]);
+            $this->pdo = new PDO('mysql:host='.$dbConfig["host"].';dbname='.$dbConfig["dbName"], $dbConfig["user"], $dbConfig["pwd"]);
             //
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //
