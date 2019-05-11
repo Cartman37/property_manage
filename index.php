@@ -50,7 +50,7 @@ if($u_name) {?>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <p style="text-align: center">Please login to see your appointments!</p>
-            <h6 style="text-align: center"><a id="loginButton" href="user_login.php">Login</a> | <a id="registerButton" href="user_register.php">Register</a></h6>
+            <h6 style="text-align: center"><a id="loginButton" href="user_login.php">Login</a><!-- | <a id="registerButton" href="user_register.php">Register</a>--></h6>
         </div>
     </div>
 
