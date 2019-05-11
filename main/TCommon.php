@@ -6,12 +6,18 @@ require_once('dbHelper.php');
 
 Class TCommon
 {
-    //database setting
-    static public $dbConfig = array(
+    //database setting mysql://b00b4fabe27ec6:c5770319@us-cdbr-iron-east-02.cleardb.net/heroku_c1994d30ae3301f?reconnect=true
+    /*static public $dbConfig = array(
         "host" => "localhost",
         "dbName" => "propertymanagement",
         "user" => "root",
         "pwd" => ""
+    );*/
+    static public $dbConfig = array(
+        "host" => "us-cdbr-iron-east-02.cleardb.net",
+        "dbName" => "heroku_c1994d30ae3301f",
+        "user" => "b00b4fabe27ec6",
+        "pwd" => "c5770319"
     );
     //session  type admin
     public static $TYPE_ADMIN=0;
